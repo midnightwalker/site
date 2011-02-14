@@ -25,6 +25,10 @@
 			<span id="comment_character_cut" style="color: red; display: none;"> Characters over the limit will be cut.</span>
 		</div>
 		<?php //echo $this->comments->getForm(); ?>
+    <?php elseif ($this->published === '0'): ?>
+            <p style="margin: 0px; padding: 0px;">Commenting is not allowed when content is unpublished.</p>
+            <p style="margin: 0px; padding: 0px;">
+            </p>
 	<?php else: ?>
             <p style="margin: 0px; padding: 0px;">Would you like to comment?</p>
             <p style="margin: 0px; padding: 0px;">

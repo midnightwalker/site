@@ -360,7 +360,7 @@
         // Comment module
         $comments = new Oibs_Controller_Plugin_Comments("content", $id);
 		$this->view->jsmetabox->append('commentUrls', $comments->getUrls());
-        // enable comment form        
+        // enable comment form
 		if ($auth->hasIdentity() && $contentData['published_cnt'] == 1) $comments->allowComments(true);
 		$comments->loadComments();
 		

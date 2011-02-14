@@ -430,6 +430,6 @@ $(document).ready(function() {
 			<div class="clear"></div>
 		<?php endif; ?>
 		<?php if(isset($this->comments)): ?>
-		        <?php echo $this->partial('partials/comments.phtml', array('comments' => $this->comments)); ?>
+		        <?php echo $this->partial('partials/comments.phtml', array('comments' => $this->comments, 'published' => $this->contentData['published_cnt'])); ?>
 		<?php endif; ?>
 	</div>
