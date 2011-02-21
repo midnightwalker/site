@@ -119,6 +119,8 @@ class Default_Form_AddCampaignForm extends Zend_Form
                         'messages' =>
                             array('stringLengthTooLong' => 'Body text too long.')))
             ))
+            ->setDescription(
+            '<div id="progressbar_campaign_desc" class="limit ok"></div>')
             ->setDecorators(array('FieldDecorator'));
         
         $campaigndesc_clear = new Oibs_Form_Element_Note('campaigndesc_clear');
