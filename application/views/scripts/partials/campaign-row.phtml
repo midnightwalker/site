@@ -34,9 +34,18 @@ if ($thisDate->compare($startDate) == -1) {
 <li>
     <div>
         <p class="campaign_list_paragraph">
-            <?php $a = explode("/", $cmpurl);
-                $campaign_url = $a[count($a)-1]; ?>
-            <strong><a href="<?php echo "campaign/view/$campaign_url"; ?>"><?php echo $this->name_cmp; ?></a></strong>
+            <?php
+                if (isset($this->group_campaigns_page) && $this->group_campaigns_page === true) {
+                    // We are calling this partial from group/view/campaings/
+                    $campaign_url = $cmpurl;
+                } else {
+                    // We are calling this partial from other places
+                    $a = explode("/", $cmpurl);
+                    $campaign_url = $a[count($a)-1];
+                    $campaign_url = "campaign/view/" . $campaign_url;
+                }
+            ?>
+            <strong><a href="<?php echo "$campaign_url"; ?>"><?php echo $this->name_cmp; ?></a></strong>
             <?php if ((isset($this->group_name_grp)) && (isset($this->id_grp_cmp))): ?>
                 <br />by <a href="<?php echo $grpurl; ?>"><?php echo $this->group_name_grp; ?></a> group
             <?php endif; ?>

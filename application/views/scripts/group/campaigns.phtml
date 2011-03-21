@@ -46,6 +46,9 @@ $this->headScript()->captureEnd();
                     <ul>
                     <?php
                     if (count($this->openCampaigns) != 0) {
+                        // Hack for tilde bug (or actually hack for bug fix...)
+                        for ($i=0; $i<count($this->openCampaigns); $i++)
+                            $this->openCampaigns[$i]['group_campaigns_page'] = true;
                         echo $this->partialLoop('partials/campaign-row.phtml', $this->openCampaigns);
                     } else {
                         ?> <p>No open campaigns.</p> <?php
@@ -57,6 +60,8 @@ $this->headScript()->captureEnd();
                     <ul>
                     <?php
                     if (count($this->notstartedCampaigns) != 0) {
+                        for ($i=0; $i<count($this->notstartedCampaigns); $i++)
+                            $this->notstartedCampaigns[$i]['group_campaigns_page'] = true;
                         echo $this->partialLoop('partials/campaign-row.phtml', $this->notstartedCampaigns);
                     } else {
                         ?> <p>No forthcoming campaigns.</p> <?php
@@ -68,6 +73,8 @@ $this->headScript()->captureEnd();
                     <ul>
                     <?php
                     if (count($this->endedCampaigns) != 0) {
+                        for ($i=0; $i<count($this->endedCampaigns); $i++)
+                            $this->endedCampaigns[$i]['group_campaigns_page'] = true;
                         echo $this->partialLoop('partials/campaign-row.phtml', $this->endedCampaigns);
                     } else {
                         ?> <p>No ended campaigns.</p> <?php
